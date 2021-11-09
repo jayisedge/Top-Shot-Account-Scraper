@@ -34,7 +34,7 @@ position_dict = {'C':'Center', 'PF':'Power Forward', 'SF':'Small Forward', 'SG':
 
 attributes = ('Player', 'League', 'Set', 'Rarity', 'Series', 'Serial', 'Total Serial', 'Play Type', 'Team', 'Jersey', 'Position', 'Badges', 'Challenge Reward?', 'Moment Date', 'Purchased By', 'Cost', 'Acquisition Method', 'Purchase Date', 'Payment Method', 'URL')
 
-write = open('github.txt', 'a', newline='', encoding='utf8')
+write = open('topshot.txt', 'a', newline='', encoding='utf8')
 writer = csv.writer(write)
 writer.writerow(attributes)
 
