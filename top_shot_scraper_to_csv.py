@@ -52,9 +52,9 @@ for link in moment_links:
     league = [word for word in (league.split('league":"'))]
     league = (league[1][0:(league[1].index('"'))])
     
-    set_type = str(moment_info.find('script', id='__NEXT_DATA__'))
-    set_type = [word for word in (set_type.split('flowName":"'))]
-    set_type = (set_type[1][0:(set_type[1].index('"'))])
+    set_name = str(moment_info.find('script', id='__NEXT_DATA__'))
+    set_name = [word for word in (set_name.split('flowName":"'))]
+    set_name = (set_name[1][0:(set_name[1].index('"'))])
     
     series_tier = str(moment_info.find('meta', property='og:image'))
     if 'fandom' in series_tier:
@@ -121,6 +121,6 @@ for link in moment_links:
     moment_date = [word for word in (moment_date.split('dateOfMoment":"'))]
     moment_date = (moment_date[1][0:(moment_date[1].index('T'))])
  
-    new_info = (player_name, league, set_type, tier, series, serial, total_serial, play_type, team, jersey, position, badges, challenge_reward, moment_date, moment_ident)
+    new_info = (player_name, league, set_name, tier, series, serial, total_serial, play_type, team, jersey, position, badges, challenge_reward, moment_date, moment_ident)
     writer.writerow(new_info)
 write.close()
