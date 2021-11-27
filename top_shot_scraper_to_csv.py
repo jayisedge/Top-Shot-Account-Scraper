@@ -110,12 +110,14 @@ for link in moment_links:
     if '"title":"Challenge Reward"' in badge:
         badges.append('Challenge Reward')
     if len(badges)==0:
-        badges.append('None')
+        badges = None
     
-    if 'Challenge Reward' in badges:
-        challenge_reward = True
-    else:
-        challenge_reward = False
+    if badges != None:    
+        if 'Challenge Reward' in badges:
+            challenge_reward = 'Yes'
+        else:
+            challenge_reward = 'No'
+        badges = ', '.join(badges)
     
     moment_date = str(moment_info.find('script', id='__NEXT_DATA__'))
     moment_date = [word for word in (moment_date.split('dateOfMoment":"'))]
