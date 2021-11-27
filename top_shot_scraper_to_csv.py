@@ -95,6 +95,8 @@ for link in moment_links:
     position = [word for word in (position.split('primaryPosition":"'))]
     position = position_dict[(position[1][0:(position[1].index('"'))])]
     
+    challenge_reward = 'No'
+    
     badges = []
     badge = str(moment_info.find('script', id='__NEXT_DATA__'))
     if '"title":"Rookie Mint"' in badge:
@@ -109,14 +111,11 @@ for link in moment_links:
         badges.append('Championship Year')
     if '"title":"Challenge Reward"' in badge:
         badges.append('Challenge Reward')
+        challenge_reward = 'Yes'
     if len(badges)==0:
-        badges = None
+        badges = 'None'
     
-    if badges != None:    
-        if 'Challenge Reward' in badges:
-            challenge_reward = 'Yes'
-        else:
-            challenge_reward = 'No'
+    if badges != 'None':    
         badges = ', '.join(badges)
     
     moment_date = str(moment_info.find('script', id='__NEXT_DATA__'))
