@@ -43,7 +43,7 @@ for link in moment_links:
     html = requests.get(url)
     moment_info = bs4.BeautifulSoup(html.text,'lxml')
     url_ident = url[-36:]
-    moment_ident=url_ident
+    moment_id=url_ident
     
     player_name = str(moment_info.find('meta', property='og:title'))
     player_name = ' '.join(player_name.split()[4:6])
@@ -122,6 +122,6 @@ for link in moment_links:
     moment_date = [word for word in (moment_date.split('dateOfMoment":"'))]
     moment_date = (moment_date[1][0:(moment_date[1].index('T'))])
  
-    new_info = (player_name, league, set_name, tier, series, serial, total_serial, play_type, team, jersey, position, badges, challenge_reward, moment_date, moment_ident)
+    new_info = (player_name, league, set_name, tier, series, serial, total_serial, play_type, team, jersey, position, badges, challenge_reward, moment_date, moment_id)
     writer.writerow(new_info)
 write.close()
